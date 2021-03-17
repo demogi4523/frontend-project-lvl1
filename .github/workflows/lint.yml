@@ -1,5 +1,12 @@
 name: lint
-on: [push]
+
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - '**'
+
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
