@@ -14,10 +14,18 @@
     "type": "git",
     "url": "git+https://github.com/demogi4523/frontend-project-lvl1.git"
   },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/demogi4523/frontend-project-lvl1/issues"
   },
-  "homepage": "https://github.com/demogi4523/frontend-project-lvl1#readme"
+  "homepage": "https://github.com/demogi4523/frontend-project-lvl1#readme",
+  "devDependencies": {
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
 }
