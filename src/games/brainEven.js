@@ -1,36 +1,34 @@
-import readlineSync from 'readline-sync';
+import gameLoop, { randomNumber } from '../index.js';
 
-import { randomNumber, startGame } from '../index.js';
-
-export default function game() {
-  const name = startGame();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  let ctr = 0;
-  while (ctr < 3) {
+export default function evenGame() {
+  const config = {
+    wrong: "Wrong answer! Use only 'yes' or /'no'",
+    correct: 'Correct!',
+    incorrect: (answerStr, rightAnswer, name) => `'${answerStr}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}!`,
+  };
+  const genQuestion = () => {
     const num = randomNumber();
-    const isEven = num % 2 === 0;
-    console.log(`Question: ${num}`);
-    const ansStr = readlineSync.question('Your answer: ');
-    if (ansStr !== 'yes' && ansStr !== 'no') {
-      ctr = 0;
-      console.log("Wrong answer! Use only 'yes' or /'no'");
-    } else {
+    const question = `Answer "yes" if the number is even, otherwise answer "no".\nQuestion: ${num}\nYour answer: `;
+    const checkAnswer = (answer) => {
+      const ansStr = answer.trim();
+      const isEven = num % 2 === 0;
+      const right = isEven === true ? 'yes' : 'no';
       let ans;
       if (ansStr === 'yes') {
         ans = isEven === true;
       } else {
         ans = isEven === false;
       }
-      if (ans) {
-        ctr += 1;
-        console.log('Correct!');
-      } else {
-        ctr = 0;
-        const correctAnsStr = isEven ? 'yes' : 'no';
-        console.log(`'${ansStr}' is wrong answer ;(. Correct answer was '${correctAnsStr}'.`);
-        console.log(`Let's try again, ${name}!`);
-      }
-    }
-  }
-  console.log(`Congratulations, ${name}!`);
+      return {
+        answer: ans,
+        rightAnswer: right,
+      };
+    };
+
+    return {
+      question,
+      checkAnswer,
+    };
+  };
+  gameLoop(genQuestion, true, 3, config);
 }

@@ -1,6 +1,11 @@
 import gameLoop, { randomNumber as genNumber } from '../index.js';
 
 export default function calcGame() {
+  const config = {
+    wrong: "Wrong answer! Use only Int number format like '25' or '13'!",
+    correct: 'Correct!',
+    incorrect: (answerStr, rightAnswer, name) => `'${answerStr}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}!`,
+  };
   const genQuestion = () => {
     const genOperation = () => {
       const set = ['+', '-', '*'];
@@ -38,5 +43,5 @@ export default function calcGame() {
       checkAnswer,
     };
   };
-  gameLoop(genQuestion, false, 3);
+  gameLoop(genQuestion, false, 3, config);
 }
