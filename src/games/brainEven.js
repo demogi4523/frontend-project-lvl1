@@ -30,5 +30,5 @@ export default function evenGame() {
       checkAnswer,
     };
   };
-  gameLoop(genQuestion, true, 3, config);
+  gameLoop(genQuestion, false, 3, config);
 }
