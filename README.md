@@ -15,5 +15,8 @@
 ## Progression game
 [![asciicast](https://asciinema.org/a/dRaRjD22mkZ0ZABjDvhmvVp0R.svg)](https://asciinema.org/a/dRaRjD22mkZ0ZABjDvhmvVp0R)
 
+## Prime game
+[![asciicast](https://asciinema.org/a/8auJav4iDm5jzDROYmDreMNef.svg)](https://asciinema.org/a/8auJav4iDm5jzDROYmDreMNef)
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/demogi4523/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/demogi4523/frontend-project-lvl1/actions)
