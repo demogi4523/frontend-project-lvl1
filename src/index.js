@@ -47,6 +47,26 @@ export function randomNumber(min = 1, max = 20) {
   return mathRound(Math.random() * delta) + min;
 }
 
+export function genRange(min = 5, max = 12) {
+  const initVal = randomNumber(2, 7);
+  const len = randomNumber(min, max);
+  const step = randomNumber(1, 4);
+  const ops = ['+', '*'];
+  const ind = randomNumber(0, 1);
+  const op = ops[ind];
+  const range = [];
+  let cur = initVal;
+  for (let i = 0; i < len; i += 1) {
+    range.push(cur);
+    if (op === '*') {
+      cur *= step;
+    } else {
+      cur += step;
+    }
+  }
+  return range;
+}
+
 export default function gameLoop(genQuestion, canMistake = true, toWin = 3, config) {
   // Приветствие
   const name = startGame();
@@ -55,6 +75,8 @@ export default function gameLoop(genQuestion, canMistake = true, toWin = 3, conf
   let ctr = 0;
   while (ctr < toWin) {
     const { question, checkAnswer } = genQuestion();
+    // TODO: here must be check to correct input by game logic
+    // TODO: incorrect values must return null
     const answerStr = readlineSync.question(question);
     if (answerStr === null) {
       console.log(wrong);
