@@ -50,19 +50,12 @@ export function randomNumber(min = 1, max = 20) {
 export function genRange(min = 5, max = 12) {
   const initVal = randomNumber(2, 7);
   const len = randomNumber(min, max);
-  const step = randomNumber(1, 4);
-  const ops = ['+', '*'];
-  const ind = randomNumber(0, 1);
-  const op = ops[ind];
+  const step = randomNumber(1, 7);
   const range = [];
   let cur = initVal;
   for (let i = 0; i < len; i += 1) {
     range.push(cur);
-    if (op === '*') {
-      cur *= step;
-    } else {
-      cur += step;
-    }
+    cur += step;
   }
   return range;
 }
