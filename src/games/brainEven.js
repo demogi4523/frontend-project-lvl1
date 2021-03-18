@@ -1,11 +1,6 @@
 import readlineSync from 'readline-sync';
 
-import startGame from './cli.js';
-
-function randomNumber(min = 1, max = 20) {
-  const delta = max - min;
-  return Math.trunc(Math.random() * delta) + min;
-}
+import { randomNumber, startGame } from '../index.js';
 
 export default function game() {
   const name = startGame();
